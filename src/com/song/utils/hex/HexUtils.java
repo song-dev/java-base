@@ -1,11 +1,11 @@
-package com.song.utils;
+package com.song.utils.hex;
 
 public class HexUtils {
 
     private final static char[] HEX = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
-     * 将b yte 数组转换为十六进制字符串
+     * 将 byte 数组转换为十六进制字符串
      *
      * @param bytes
      * @return
@@ -25,12 +25,12 @@ public class HexUtils {
      * @return
      */
     public static byte[] hexToBytes(String content) {
-        char[] hex = content.toCharArray();
-        int length = hex.length / 2;
+        char[] chars = content.toCharArray();
+        int length = chars.length / 2;
         byte[] raw = new byte[length];
         for (int i = 0; i < length; i++) {
-            int high = Character.digit(hex[i * 2], 16);
-            int low = Character.digit(hex[i * 2 + 1], 16);
+            int high = Character.digit(chars[i * 2], 16);
+            int low = Character.digit(chars[i * 2 + 1], 16);
             int value = (high << 4) | low;
             if (value > 127) {
                 value -= 256;

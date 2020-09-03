@@ -1,8 +1,5 @@
 package com.song.utils;
 
-import java.security.PublicKey;
-import java.security.interfaces.RSAPublicKey;
-
 public class Test {
 
     @org.junit.Test
@@ -36,15 +33,6 @@ public class Test {
 
         String IV = "0000000000000000";
         String key = "gh1vg8ya3gqr0jqf";
-
-        System.out.println(Base64.encode("test".getBytes()));
-        System.out.println(GT3Base64Util.encode("test".getBytes()));
-
-        String content = "IcRYrh3UVYGaaYorUzlvRrpyLPo)XBqJK2Hg62(HOApAK0BwO5dI)8Ko9fOS20kbdHNYvS2YCXDi(W1d4Tuq0mmvvZUV0ueRw9L90ObLgSqavpIDILy1U5ENdD(unPRLoPLf64(tcRJ3pmj0)jLCbVI5SlNn0VAq60Hx8yA)Shy3d6AaB8k6NQQOtQbFL)6EDpRr1NF0ohN2ecpmIuE3XduKqrJdAZk9BupcB(uxwIrPXIgGj6(qyZvRLsG6uLTzW9t3E8Gv9djRpxLro837Ze0ts80XbzEExHyS0NTVQQNz(Af)NBFVNoTwqzn6841uaW73yZsi07P)VKLiAg5RHOD3SpYrj0XsV4o3qGyab(kWg45AhMG8as0yxuAJmAG)vEjU5hUw(Lzt9F9OcmfeLdXzUTQbrg9(sakphy9xhfY5I6CzsI0Zdv7HwcH43FjC(WQ5DRp4JBoHNfDQBXOMLhWu4eyS8E5LpHGAdAzUjFD)rBv1bk29j4Nlx5QoqzalVE0NdS38QqfwzFCUATtskQjp6R(5Hp7QNHiuqRwK6TYEv5ker8rXmiqYko5uqdZiS7LcCPtgbbA6CaYWTKDSVp1)7KzhMxp1hFyANRcR6(xNZa894ueJIj6inkzAg3KjEickA7xclOBNbVCa9gkMiqrvBkBrSgv6Zk(DwCYgt(reBJ1hIN3hfwcOacFl0rTRzhRixA87YfBIpo9dgUDEDPhOlp4zWXSOxnd3q6dm9Bhn9JqD0(6Glr3BiaHoXXFelB2NaFEN6PQfbdZ2MlXjZ7z2UwETMg1MAtycAiX6Ejq8bdxDov0as02)YBU1XLD9OaA6(hCNDG2(nA2UlRQE(ivfNNyCk8gvStk8K6J)W2yW3u3oyehB(hTz5(Ypgk9BRN8IQcVWNJSEiLymPXwB0kJ4JM4eO1rDhNVWTUk3VBFkgc4UjjXjqyxaamHeP7d3R4PxW0u11Bkvobr92eirF8pfR)O3tmQV6Aa87dAc714PbteINVkfF6A87HLJNFZTrmbYrCPL77PivDVHq3uV5XH1PuLAPcDSmA07B6MbwWBnK)yjU55AQyej8AyHqNIN0DeWDNGgQEliDZ1T475ube(RPgxVtHhgYFpBXGbR57g.";
-
-        byte[] bytes = GT3Base64Util.decode(content);
-        System.out.println(bytes.length);
-        System.out.println(bytes.length / 16.0);
 
     }
 }
