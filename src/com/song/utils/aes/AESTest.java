@@ -30,6 +30,22 @@ public class AESTest {
     }
 
     @Test
+    public void test_aes_gcm() throws Exception {
+        String key = "0123456789012345";
+        String iv = "000000000000";
+
+        String content = "Optimizing the CPU utilization of an application has many advantages, such as providing " +
+                "a faster and smoother user experience and extending the battery life of the device." +
+                "You can use the CPU Profiler to check your application's CPU usage and thread activity " +
+                "in real time while interacting with your application, as well as check the details " +
+                "of the recorded method trace data, function trace data, and system trace data.";
+
+        byte[] encrypt = AesGcmUtils.encrypt(content, key, iv);
+        System.out.println(Base64.encode(encrypt));
+        System.out.println(new String(AesGcmUtils.decrypt(encrypt, key, iv)));
+    }
+
+    @Test
     public void test_aes_logan_decrypt() throws Exception {
 
         String key = "0123456789012345";
