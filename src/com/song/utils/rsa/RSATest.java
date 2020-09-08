@@ -4,27 +4,30 @@ import com.song.utils.base64.Base64;
 import javafx.util.Pair;
 import org.junit.Test;
 
+/**
+ * 都为 pkcs8 格式公私钥
+ */
 public class RSATest {
 
-    private static final String PRIVATE_KEY_1024 = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBALyGcuNlAsW3UZk+\n" +
-            "xNaEOzcZLp/mFGiDX6nWy/jwO+Hmd6DSleCOePf8h5PeT/jilyeYyu06IabOoY7j\n" +
-            "bVGpqRm0ifcKpILrEYr34x8lp///9M76EqJweW1XEdIh/aEfuBSjUoLK6zlCT0+f\n" +
-            "CK83+knXkQPmnFBk2+8YtN5ZldATAgMBAAECgYBON948+HDhBYEmesOCWVSUNK+C\n" +
-            "ihxXjIJJXiQ8wbemr09c+2JRy+rmwPCjai52DdU3CY7QRDkoEz02oqd9pU3R9SjZ\n" +
-            "J/Y/GypCXbYGXU61cXRmRxWqH1OtE8JM8eBOzIBLhtBh/WT1WSCfAPHIct3WI0YK\n" +
-            "4/8s+wFDKBp6w/UFWQJBANvytm7s1fqxIaayqsHV1H9ZhHLB5MaOcyqS6PQCpe49\n" +
-            "7At2DpEcS+bbDQxJnG3SgvNOx4a/ouAM/F717t5k2Z8CQQDbbTFxU/FtqC9472p7\n" +
-            "etlpmR5qUW+FM6Wa8pNQciX+v7mQACXNTWPomjD9hcVO+lJkEGRUsgKBVP7lQ8yr\n" +
-            "mF0NAkBowcsePfMUebUbXlFyDNQu64Xn2m2KHGLBzkLhpTk+pYN9WfdKKf4EsCQg\n" +
-            "zBaTQAZauBTUGwYKTGUPHXdtuP7lAkBY/JV6kkJs6DIoZ1/Vp+KX8qLlFxWU/XcB\n" +
-            "ubKIg2JpR7OndIfgFKyZ3j5T8nYsK1RShFtMBc0CSkf9DlvokyfZAkBLCusp9ifd\n" +
-            "SRrRxXMt7D/Qhvbt0YSUwMzmlrguzUUtiC/g7iWaX6EC2pdHFaShBUaPclzc4gGB\n" +
-            "fs934S+Zo7GQ";
+    private static final String PRIVATE_KEY_1024 = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAOROSt+3cN0A1OnV\n" +
+            "A/bFVVsxzP/Aljzr9mNoDBBEKQA+zDDmZfkoL6MV+ym7fIdL+7VVCicTrKaYC8yx\n" +
+            "tpltCVhqtGFjRHuM3K4kUgQMU0QZO5+ShfRGRa4tQaNQcRGyOnStLTyY2kNDMoz+\n" +
+            "N0snQx6Ap9Far6nKCsslz4pG7obzAgMBAAECgYBh1l9l0eHvA606a8vgE57JjuTv\n" +
+            "8OMxRll3Lh6FVgBQF5k/l2y5wovvkrronmz2OgyrH79TEa5aUiw0UzASPdTTnOWC\n" +
+            "FPqIEH48ajZ3+V7Ubn6JvpqizW1NjDwtWRg8Qs2AmXmJoxd7X5V2Ekr0u9n5k7qu\n" +
+            "mEgcxLTNd+K3rU1g8QJBAPTbrl5b4diMZTLYcmaC1By1XokMdNEP1L6AjdcQcXQw\n" +
+            "8Bp/iVljzq0RWus0gqzX07iKe2F/ARy830/93EAWQQsCQQDuscu+hk+bVdPrHRD6\n" +
+            "raoxa42xxiAjyI75kmioJrkZXnMSb4rvT9IuOif3v0Hwl04xh4QDuIUxddNvzNpM\n" +
+            "jFK5AkAzjjnFpmUEOnNoZEiaKvvMW6ffBV9nUYUC44B6Av1QcKlteuMJjklLCXdy\n" +
+            "RKkrCXqLxaS634n1ahM+/X2thMIHAkEAj6KD9XGDQ/lA3fGOvxp0GOscyAZuXroY\n" +
+            "d0xIGC+9IOv6GPTwSRPiaZjrZiU8O9gA4MMoiMintdyuUE+YaYnjWQJAUMKivMzC\n" +
+            "htawmnEtiOtwiu4dH2pCHmxBOXPGNyrmH28epPnpAkc2sbvB6CGftldYjoVbv9+k\n" +
+            "ZBXsWDbOkSCyMw==";
 
-    private static final String PUBLIC_KEY_1024 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8hnLjZQLFt1GZPsTWhDs3GS6f\n" +
-            "5hRog1+p1sv48Dvh5neg0pXgjnj3/IeT3k/44pcnmMrtOiGmzqGO421RqakZtIn3\n" +
-            "CqSC6xGK9+MfJaf///TO+hKicHltVxHSIf2hH7gUo1KCyus5Qk9PnwivN/pJ15ED\n" +
-            "5pxQZNvvGLTeWZXQEwIDAQAB";
+    private static final String PUBLIC_KEY_1024 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDkTkrft3DdANTp1QP2xVVbMcz/\n" +
+            "wJY86/ZjaAwQRCkAPsww5mX5KC+jFfspu3yHS/u1VQonE6ymmAvMsbaZbQlYarRh\n" +
+            "Y0R7jNyuJFIEDFNEGTufkoX0RkWuLUGjUHERsjp0rS08mNpDQzKM/jdLJ0MegKfR\n" +
+            "Wq+pygrLJc+KRu6G8wIDAQAB";
 
     private static final String PRIVATE_KEY_2048 = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCkxbDDzpg6Mmab\n" +
             "rquZsvHk5ypUetmHLMS0jqdlaV+NsG9yfUnhBNNP+ZQ8mHmNqkCTVfWcJnBWJmZo\n" +
@@ -175,29 +178,56 @@ public class RSATest {
             "J/cv8lkWOSIKwmYre2siCb0CAwEAAQ==";
 
     @Test
+    public void test_rsa_key() {
+
+        System.out.println(Base64.decode(PUBLIC_KEY_1024.replace("\n", "")).length);
+        System.out.println(Base64.decode(PUBLIC_KEY_2048.replace("\n", "")).length);
+        System.out.println(Base64.decode(PUBLIC_KEY_3072.replace("\n", "")).length);
+        System.out.println(Base64.decode(PUBLIC_KEY_4096.replace("\n", "")).length);
+        System.out.println(Base64.decode(PRIVATE_KEY_1024.replace("\n", "")).length);
+        System.out.println(Base64.decode(PRIVATE_KEY_2048.replace("\n", "")).length);
+        System.out.println(Base64.decode(PRIVATE_KEY_3072.replace("\n", "")).length);
+        System.out.println(Base64.decode(PRIVATE_KEY_4096.replace("\n", "")).length);
+
+    }
+
+    @Test
     public void generate_rsa_key() throws Exception {
+
+        // 1024 pkcs8 private key len: 633-635, public key len: 162
+        // 1024 pkcs1 private key len: 609, public key len: 162
+        // 2048 pkcs8 private key len: 1217-1218, public key len: 294
+        // 2048 pkcs1 private key len: 608, public key len: 162
+        // 3072 pkcs8 private key len: 1792-1795, public key len: 422
+        // 3072 pkcs1 private key len: 608, public key len: 162
+        // 4096 pkcs8 private key len: 2373-2376, public key len: 550
+        // 4096 pkcs1 private key len: 608, public key len: 162
+
         Pair<String, String> pair = RSAUtils.getRSAPair();
-        System.out.println("pub: " + pair.getKey());
-        System.out.println("pri: " + pair.getValue());
-        String pri_pem = RSAUtils.pkcs1ToPem(Base64.decode(pair.getValue()), false);
+        System.out.println("public key: " + pair.getKey());
+        System.out.println("public key len: " + Base64.decode(pair.getKey()).length);
+        System.out.println("private key: " + pair.getValue());
+        System.out.println("private key len: " + Base64.decode(pair.getValue()).length);
+        String pri_pem = PemUtils.pkcs8ToPem(Base64.decode(pair.getValue()), false);
         System.out.println(pri_pem);
-        String pub_pem = RSAUtils.pkcs1ToPem(Base64.decode(pair.getKey()), true);
+        String pub_pem = PemUtils.pkcs8ToPem(Base64.decode(pair.getKey()), true);
         System.out.println(pub_pem);
+
     }
 
     @Test
     public void test_rsa_encrypt() throws Exception {
 
         StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 62; i++) {
             sb.append("0");
         }
         System.out.println("content len: " + sb.length());
 
-        byte[] encrypt = RSAUtils.encryptWithOAEP(sb.toString(), PUBLIC_KEY_3072.replace("\n", ""), 318);
+        byte[] encrypt = RSAUtils.encryptWithOAEP(sb.toString(), PUBLIC_KEY_1024.replace("\n", ""), 318);
         System.out.println("encrypt len: " + encrypt.length + ", encrypt: " + Base64.encode(encrypt));
 
-        System.out.println(new String(RSAUtils.decryptWithOAEP(encrypt, PRIVATE_KEY_3072.replace("\n", ""), 384)));
+        System.out.println(new String(RSAUtils.decryptWithOAEP(encrypt, PRIVATE_KEY_1024.replace("\n", ""), 384)));
 
     }
 

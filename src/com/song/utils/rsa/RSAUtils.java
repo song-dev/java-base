@@ -16,6 +16,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 /**
+ * Java 只支持 pkcs8 格式公私钥识别
  * RSA 最长分段数据
  * 算法   1024    2048    3072    4096
  * No    128     256     384     512
@@ -43,14 +44,14 @@ public class RSAUtils {
     /**
      * 密钥长度，用来初始化
      */
-    private static final int KEY_SIZE = 3072;
+    private static final int KEY_SIZE = 1024;
     /**
      * 可接受最长加密数据长度
      */
     public static final int MAX_ENCRYPT_OAEP_BLOCK = 318;
 
     /**
-     * 生成RSA密钥对
+     * Java 生成默认公私钥格式都为 pkcs8 且默认只能识别 pkcs8 格式公私钥
      *
      * @return
      */
@@ -63,32 +64,7 @@ public class RSAUtils {
         Key privateKey = keyPair.getPrivate();
         byte[] publicKeyBytes = publicKey.getEncoded();
         byte[] privateKeyBytes = privateKey.getEncoded();
-        String publicKeyBase64 = Base64.encode(publicKeyBytes);
-        String privateKeyBase64 = Base64.encode(privateKeyBytes);
-        return new Pair<>(publicKeyBase64, privateKeyBase64);
-    }
-
-    /**
-     * pkcs1格式转换pem格式
-     *
-     * @param rsaKey
-     * @param isPublic
-     * @return
-     * @throws Exception
-     */
-    public static String pkcs1ToPem(byte[] rsaKey, boolean isPublic) throws Exception {
-        String type;
-        if (isPublic) {
-            type = "PUBLIC KEY";
-        } else {
-            type = "RSA PRIVATE KEY";
-        }
-        PemObject pemObject = new PemObject(type, rsaKey);
-        StringWriter stringWriter = new StringWriter();
-        PemWriter pemWriter = new PemWriter(stringWriter);
-        pemWriter.writeObject(pemObject);
-        pemWriter.close();
-        return stringWriter.toString();
+        return new Pair<>(Base64.encode(publicKeyBytes), Base64.encode(privateKeyBytes));
     }
 
     /**

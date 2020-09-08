@@ -1,8 +1,24 @@
 package com.song.utils;
 
+import com.song.utils.base64.Base64;
 import org.junit.Test;
 
 public class StringUtils {
+
+    @Test
+    public void test_len() {
+
+        String key = "MIGJAoGBAOROSt+3cN0A1OnVA/bFVVsxzP/Aljzr9mNoDBBEKQA+zDDmZfkoL6MV\n" +
+                "+ym7fIdL+7VVCicTrKaYC8yxtpltCVhqtGFjRHuM3K4kUgQMU0QZO5+ShfRGRa4t\n" +
+                "QaNQcRGyOnStLTyY2kNDMoz+N0snQx6Ap9Far6nKCsslz4pG7obzAgMBAAE=";
+        System.out.println(Base64.decode(key.replace("\n", "")).length);
+
+        // 1024 pkcs8 private key len: 633, public key len: 162
+        // 1024 pkcs1 private key len: 608-609, public key len: 162
+        // 2048 pkcs8 private key len: 1218, public key len: 294
+        // 2048 pkcs1 private key len: 608, public key len: 162
+
+    }
 
     @Test
     public void read_string_len() {
