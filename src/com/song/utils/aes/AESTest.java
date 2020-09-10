@@ -1,6 +1,7 @@
 package com.song.utils.aes;
 
 import com.song.utils.base64.Base64;
+import com.song.utils.binhexoct.BinHexOctUtils;
 import com.song.utils.hex.HexUtils;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
@@ -69,7 +70,7 @@ public class AESTest {
 
         System.out.println(origin[0]);
         byte[] len = Arrays.copyOfRange(origin, 1, 5);
-        int s = (len[0] & 0xff) << 24 | (len[1] & 0xff) << 16 | (len[2] & 0xff) << 8 | (len[3] & 0xff);
+        int s = BinHexOctUtils.bytesToInt(len);
         System.out.println(s);
 
         byte[] cipherText = Arrays.copyOfRange(origin, 5, 5 + s);

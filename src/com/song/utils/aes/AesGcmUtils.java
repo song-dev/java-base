@@ -7,7 +7,6 @@ import java.nio.charset.StandardCharsets;
 
 public class AesGcmUtils {
 
-    private static final String IV_DEFAULT = "000000000000";
     private static final String ALGORITHM_AES = "AES";
     private static final String ALGORITHM_AES_GCM = "AES/GCM/NoPadding";
 
