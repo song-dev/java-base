@@ -1,5 +1,7 @@
 package com.song.utils;
 
+import java.util.UUID;
+
 public class Test {
 
     @org.junit.Test
@@ -20,6 +22,9 @@ public class Test {
         while ((len - n) > sound) {
             sb.append(key.substring(n, n + sound));
             sb.append('\n');
+
+
+
             n += sound;
         }
         sb.append(key.substring(n, len));
@@ -33,6 +38,8 @@ public class Test {
 
         String IV = "0000000000000000";
         String key = "gh1vg8ya3gqr0jqf";
+
+        System.out.println(UUID.randomUUID().toString());
 
     }
 }

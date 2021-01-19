@@ -31,6 +31,24 @@ public class AESTest {
     }
 
     @Test
+    public void test_aes_decrypt_gid() throws Exception {
+        String key = "fCw53lwNFFNCflhF1VKiYTQ6NdHl3WHg";
+        String iv = "TsGqMygT8RfSJYEf";
+        String content = "KIn2ZzUETZ5DtqI/RJOhuR3E6xVjryIp63DnmOoSP5qk95m9zkzJ03SNLr/o/q+ZO5+XF5kFQiUr72t49/kaAam6yUSFOjJkMmwSKtJTvzt6QbXOZ1NB3tU5Z2+0c/8Mzv0wbKAaB/1UP4T+hKeDHg==";
+
+        System.out.println(new String(AESUtils.decrypt(Base64.decode(content), key, iv)));
+    }
+
+    @Test
+    public void test_aes_decrypt_bid() throws Exception {
+        String key = "30212102dicudiab";
+        String iv = "30212102dicudiab";
+        String content = "FoNYV5uSyQTXlBkXdEP1dPWS0XaTgvdgYndVm88gzN3Qx/pr2nPLDsIYiLldj63gWn0KsJYTBhJqqf/n9KLFMDhWBn1Q9/nRGlXSTBylLMs7zXkm9SX2uPkfOjnk62b2";
+
+        System.out.println(new String(AESUtils.decrypt(Base64.decode(content), key, iv)));
+    }
+
+    @Test
     public void test_aes_gcm() throws Exception {
         String key = "0123456789012345";
         String iv = "000000000000";

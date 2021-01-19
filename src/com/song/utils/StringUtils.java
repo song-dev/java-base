@@ -3,7 +3,38 @@ package com.song.utils;
 import com.song.utils.base64.Base64;
 import org.junit.Test;
 
+import java.security.SecureRandom;
+
 public class StringUtils {
+
+    public static final String CHARS_ALL = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-=.";
+    public static final String LOWER_CASE = "abcdefghijkllmnopqrstuvwxyz";
+    public static final String DIGIT = "0123456789";
+    public static final int DEFAULT_RANDOM_LENGTH = 16;
+
+    public static String generateDefaultAesKey() {
+        return generateString(DEFAULT_RANDOM_LENGTH);
+    }
+
+    /**
+     * 返回一个定长的随机字符串(只包含大小写字母、数字)
+     *
+     * @param length 随机字符串长度
+     * @return 随机字符串
+     */
+    private static String generateString(int length) {
+        StringBuffer sb = new StringBuffer();
+        SecureRandom random = new SecureRandom();
+        for (int i = 0; i < length; i++) {
+            sb.append(CHARS_ALL.charAt(random.nextInt(CHARS_ALL.length())));
+        }
+        return sb.toString();
+    }
+
+    @Test
+    public void test_random(){
+        System.out.println(generateString(16));
+    }
 
     @Test
     public void test_len() {
