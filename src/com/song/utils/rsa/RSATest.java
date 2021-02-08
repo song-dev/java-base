@@ -2,7 +2,11 @@ package com.song.utils.rsa;
 
 import com.song.utils.base64.Base64;
 import javafx.util.Pair;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemWriter;
 import org.junit.Test;
+
+import java.io.StringWriter;
 
 /**
  * 都为 pkcs8 格式公私钥
@@ -229,6 +233,12 @@ public class RSATest {
 
         System.out.println(new String(RSAUtils.decryptWithOAEP(encrypt, PRIVATE_KEY_1024.replace("\n", ""), 384)));
 
+    }
+
+    @Test
+    public void test_pem() throws Exception {
+        String privateKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCz1JiHxroOf83uSGF9Ud87iaIh2SwDOden82xk+Zz6Ll3e4EECf+ZDY0kluCm90hvlrKhDMQLmc45S+WQ2aLLXCuDZUSTynffn/Eushc35gMXIHVkGyqb66NhxYUe6sikHanfsIKGnsA3wgeCOTbrKbrbDJtCdXyMYU3snwRvh5QIDAQAB";
+        System.out.println(PemUtils.pkcs8ToPem(Base64.decode(privateKey),true));
     }
 
 }
