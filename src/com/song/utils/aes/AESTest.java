@@ -15,7 +15,7 @@ public class AESTest {
 
     @Test
     public void test_aes() throws Exception {
-        String key = "01234567890123450123456789012345";
+        String key = "0123456789012345";
         String iv = "0123456789012345";
 
         String content = "Optimizing the CPU utilization of an application has many advantages, such as providing " +
